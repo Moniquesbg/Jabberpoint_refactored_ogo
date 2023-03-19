@@ -25,8 +25,6 @@ public class Slide {
 		this.items = new Vector<>();
 	}
 
-	//methods - getters&setters
-
 	//Add a SlideItem
 	public void append(SlideItem anItem) {
 		this.items.addElement(anItem);

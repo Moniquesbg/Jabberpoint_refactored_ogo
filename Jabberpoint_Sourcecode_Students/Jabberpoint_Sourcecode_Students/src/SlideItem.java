@@ -17,16 +17,12 @@ public abstract class SlideItem {
 	private int level = 0; //The level of the SlideItem
 
 	public SlideItem(int lev) {
-		level = lev;
-	}
-
-	public SlideItem() {
-		this(0);
+		this.level = lev;
 	}
 
 //Returns the level
 	public int getLevel() {
-		return level;
+		return this.level;
 	}
 
 //Returns the bounding box

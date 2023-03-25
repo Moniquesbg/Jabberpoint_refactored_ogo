@@ -75,7 +75,7 @@ public class MenuController extends MenuBar {
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				XMLWriter xmlWriter = new XMLWriter();
+				Writable xmlWriter = AccessorFactory.createWriter("XML");
 				try {
 					xmlWriter.saveFile(presentation, SAVEFILE);
 				} catch (IOException exc) {

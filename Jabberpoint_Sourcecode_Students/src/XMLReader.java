@@ -1,3 +1,4 @@
+import Utility.ErrorMessages;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -24,16 +25,9 @@ public class XMLReader implements Readable {
     protected static final String TEXT = "text";
     protected static final String IMAGE = "image";
 
-    /** Text of messages */
-    protected static final String PCE = "Parser Configuration Exception";
-    protected static final String UNKNOWNTYPE = "Unknown Element type";
-    protected static final String NFE = "Number Format Exception";
-
-
     private String getTitle(Element element, String tagName) {
         NodeList titles = element.getElementsByTagName(tagName);
         return titles.item(0).getTextContent();
-
     }
 
     public void loadFile(Presentation presentation, String filename) throws IOException {
@@ -67,7 +61,7 @@ public class XMLReader implements Readable {
             System.err.println(sax.getMessage());
         }
         catch (ParserConfigurationException pcx) {
-            System.err.println(PCE);
+            System.err.println(ErrorMessages.PCE);
         }
     }
 
@@ -80,7 +74,7 @@ public class XMLReader implements Readable {
                 level = Integer.parseInt(leveltext);
             }
             catch(NumberFormatException x) {
-                System.err.println(NFE);
+                System.err.println(ErrorMessages.NFE);
             }
         }
         String type = attributes.getNamedItem(KIND).getTextContent();
@@ -92,7 +86,7 @@ public class XMLReader implements Readable {
                 slide.append(new BitmapItem(level, item.getTextContent()));
             }
             else {
-                System.err.println(UNKNOWNTYPE);
+                System.err.println(ErrorMessages.UNKNOWNTYPE);
             }
         }
     }

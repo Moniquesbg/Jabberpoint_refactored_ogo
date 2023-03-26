@@ -1,3 +1,6 @@
+import Utility.ErrorMessages;
+import Utility.FileMessages;
+
 import javax.swing.JOptionPane;
 
 import java.io.IOException;
@@ -17,16 +20,13 @@ import java.io.IOException;
  */
 
 public class JabberPoint {
-	protected static final String IOERR = "IO Error: ";
-	protected static final String JABERR = "Jabberpoint Error ";
-	protected static final String JABVERSION = "Jabberpoint 1.6 - OU version";
 
 	/** The main program */
 	public static void main(String[] argv) {
 		
 		StyleFactory.createStyles();
 		Presentation presentation = new Presentation();
-		new SlideViewerFrame(JABVERSION, presentation);
+		new SlideViewerFrame(FileMessages.JABVERSION, presentation);
 		try {
 			if (argv.length == 0) { //a demo presentation
 				AccessorFactory.createReader("DEMO").loadFile(presentation, "");
@@ -36,7 +36,7 @@ public class JabberPoint {
 			presentation.setSlideNumber(0);
 		} catch (IOException ex) {
 			JOptionPane.showMessageDialog(null,
-					IOERR + ex, JABERR,
+					ErrorMessages.IOERR + ex, ErrorMessages.JABERR,
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}

@@ -26,8 +26,6 @@ import java.util.ArrayList;
 
 public class TextItem extends SlideItem {
 	private String text;
-	
-	private static final String EMPTYTEXT = "No Text Given";
 
 //A textitem of int level with text string
 	public TextItem(int level, String string) {

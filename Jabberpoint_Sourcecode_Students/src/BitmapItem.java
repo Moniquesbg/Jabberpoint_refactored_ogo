@@ -8,6 +8,9 @@ import javax.imageio.ImageIO;
 
 import java.io.IOException;
 
+import Utility.ErrorMessages;
+import Utility.FileMessages;
+
 
 /** <p>The class for a Bitmap item</p>
  * <p>Bitmap items are responsible for drawing themselves.</p>
@@ -23,10 +26,6 @@ import java.io.IOException;
 public class BitmapItem extends SlideItem {
   private BufferedImage bufferedImage;
   private String imageName;
-  
-  protected static final String FILE = "File ";
-  protected static final String NOTFOUND = " not found";
-
 
   	//level indicates the item-level; name indicates the name of the file with the image
 	public BitmapItem(int level, String name) {
@@ -36,7 +35,7 @@ public class BitmapItem extends SlideItem {
 			this.bufferedImage = ImageIO.read(new File(imageName));
 		}
 		catch (IOException e) {
-			System.err.println(FILE + imageName + NOTFOUND) ;
+			System.err.println(FileMessages.FILE + imageName + ErrorMessages.NOTFOUND) ;
 		}
 	}
 

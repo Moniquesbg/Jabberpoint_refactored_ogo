@@ -1,4 +1,5 @@
 import Utility.FileMessages;
+import Utility.slideFrame;
 
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;
@@ -18,8 +19,6 @@ import javax.swing.JFrame;
 
 public class SlideViewerFrame extends JFrame {
 	private static final long serialVersionUID = 3227L;
-	public final static int WIDTH = 1200;
-	public final static int HEIGHT = 800;
 	
 	public SlideViewerFrame(String title, Presentation presentation) {
 		super(title);
@@ -40,7 +39,7 @@ public class SlideViewerFrame extends JFrame {
 		getContentPane().add(slideViewerComponent);
 		addKeyListener(new KeyController(presentation)); //Add a controller
 		setMenuBar(new MenuController(this, presentation));	//Add another controller
-		setSize(new Dimension(WIDTH, HEIGHT)); //Same sizes a slide has
+		setSize(new Dimension(slideFrame.WIDTH, slideFrame.HEIGHT)); //Same sizes a slide has
 		setVisible(true);
 	}
 }
